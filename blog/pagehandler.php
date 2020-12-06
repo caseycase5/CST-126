@@ -1,3 +1,12 @@
+<!-- 
+CST-126 Blog Project Page Handler page Version 1.0
+Created by Casey Huz on December 6th 2020 for CST-126
+Module provides the processing of the data inputed by the user 
+during registration and passes it to the sql server for storage.
+User will be given a simple notification letting them know if the 
+storage was successful.
+-->
+
 <style>
 		body
 		{  
