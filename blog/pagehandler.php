@@ -34,7 +34,7 @@
     VALUES (NULL, '$username', '$userPassword', '$firstName', '$lastName', '$email', '$address', '$city', '$state', '$zipcode', '$country', '$role')";
     
     if(mysqli_query($conn, $sql)) {
-        echo 'Data inserted';
+        echo 'Registration Complete!';
     }
     else {
         echo 'Data not inserted';
