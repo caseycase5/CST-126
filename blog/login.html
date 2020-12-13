@@ -1,0 +1,47 @@
+<!-- 
+CST-126 Blog Project login page Version 1.0
+Created by Casey Huz on December 13th 2020 for CST-126
+Module provides user input fields to allow a user to attempt
+to login to a previously created account.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login Form</title>
+	<style>
+	body
+		{  
+  			font-family: Calibri, Helvetica, sans-serif;  
+ 			background-color: #DEB887;  
+		}
+
+		.loginButton
+		{
+			background-color: #7FFFD4;  
+  			color: black;  
+			cursor: pointer;
+  			padding: 15px 20px;    
+ 			border: none; 
+  			width: 100%;  
+  			opacity: 0.9; 
+		}
+	</style>
+</head>
+<body>
+	<h1 id="title">Login Form</h1>
+	
+	<form method="post" action="loginHandler.php">
+		<label id="username">Username:</label><br>
+		<input type="text" name="username" placeholder="Username" maxlength="20" required><br><br>
+
+		<label id="password">Password</label><br>
+		<input type="password" name="password" placeholder="Password" minlength="10" maxlength="30" required><br><br>
+	
+		<button type="submit" class="loginButton">Login</button><br><br>
+	</form>
+	
+	<a href="index.html">Main Menu</a>
+</body>
+</html>
