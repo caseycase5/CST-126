@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>New Blog Post</title>
+		<style>
+			body
+			{  
+  				font-family: Calibri, Helvetica, sans-serif;  
+ 				background-color: #DEB887;  
+			}
+			.newPostButton
+		{
+			background-color: #7FFFD4;  
+  			color: black;  
+			cursor: pointer;
+  			padding: 15px 20px;    
+ 			border: none; 
+  			width: 50%;  
+  			opacity: 0.9; 
+		}
+		</style>
+	</head>
+	<body>
+		<h1 align="center">Create New Blog Post</h1>
+		<form method="POST" id="newPostForm" action="newPostHandler.php">
+			<label id="postTitle">Post Title:</label><br>
+			<input type="text" name="postTitle" placeholder="Post Title" maxlength="50" required><br><br>
+			
+			<label id="postContent">Post Content:</label><br>
+			<textarea name="postContent" rows="5" cols="100" placeholder="Post Content"></textarea><br><br>
+			
+			<button type="submit" class="newPostButton">Add Post</button>
+		</form>
+	</body>
+</html>
