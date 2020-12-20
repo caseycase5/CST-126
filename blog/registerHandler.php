@@ -1,5 +1,5 @@
 <!-- 
-CST-126 Blog Project Registration Handler page Version 1.1
+CST-126 Blog Project Registration Handler page Version 1.2
 Created by Casey Huz on December 13th 2020 for CST-126
 Module provides the processing of the data inputed by the user 
 during registration and passes it to the sql server for storage.

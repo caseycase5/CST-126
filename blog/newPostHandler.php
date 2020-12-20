@@ -1,3 +1,11 @@
+<!-- 
+CST-126 Blog New Post Handler Handler page Version 1.0
+Created by Casey Huz on December 13th 2020 for CST-126
+Module provides the processing of the data inputed by the user 
+during creation of a new blog post. This handler will add the
+data to the SQL server.
+-->
+
 <?php
     $servername = "localhost";
     $databaseUser = "root";
