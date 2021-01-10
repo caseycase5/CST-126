@@ -54,3 +54,27 @@ logged in or not.
 
     mysqli_close($conn);
 ?>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login Success</title>
+	<style>
+	body
+		{  
+  			font-family: Calibri, Helvetica, sans-serif;  
+ 			background-color: #DEB887;  
+		}
+
+		.loginButton
+		{
+			background-color: #7FFFD4;  
+  			color: black;  
+			cursor: pointer;
+  			padding: 15px 20px;    
+ 			border: none; 
+  			width: 100%;  
+  			opacity: 0.9; 
+		}
+	</style>
+</head>
+
+<br><br><a href="newpost.html">Add a New Post</a>
