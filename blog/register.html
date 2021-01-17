@@ -45,7 +45,14 @@ in order to create a new account.
 			<input type="text" name="lastName" placeholder="Last Name"maxlength="20" required><br><br>
 
 			<label id="role">Role:</label><br>
-			<input type="text" name="role" placeholder="Role" maxlength="30" required><br><br>
+			<input list="roleSelection" name="role" placeholder="Role" required
+				pattern="Subscriber|Editor|Author|Contributor">
+				<datalist id="roleSelection">
+					<option value="Subscriber">
+					<option value="Editor">
+					<option value="Author">
+					<option value="Contributor">
+				</datalist><br><br>
 
 			<label id="email">Email:</label><br>
 			<input type="text" name="email" placeholder="Email" maxlength="30" required><br><br>

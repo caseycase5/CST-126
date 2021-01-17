@@ -16,6 +16,8 @@ logged in or not.
     $database = "blog";
     $username = $_POST["username"];
     $userPassword = $_POST["password"];
+    $message = "Null";
+    $currentUsername = null;
     
     $conn = new mysqli($serverName, $databaseUser, $password, $database);
 
@@ -40,20 +42,21 @@ logged in or not.
 
     // Returning an echo based on the number of rows returned
     if($count == 1) {
-        echo ("Your login was successful!!");
+        $message = ("Your login was successful!!");
+        $currentUsername = $username;
     }
     else if($count == 0) {
-        echo("Your Login Name or Password is invalid");
+        $message = ("Your Login Name or Password is invalid");
     }
     else if($count > 1) {
-        echo("There are multiple users registered with that username/password");
+        $message = ("There are multiple users registered with that username/password");
     }
     else {
-        echo ("Error");
+        $message = ("Error. Please contact site admin.");
     }
-
     mysqli_close($conn);
 ?>
+<html>
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Login Success</title>
@@ -69,12 +72,35 @@ logged in or not.
 			background-color: #7FFFD4;  
   			color: black;  
 			cursor: pointer;
-  			padding: 15px 20px;    
+  			padding: 15px 20px;
  			border: none; 
   			width: 100%;  
   			opacity: 0.9; 
 		}
+		
+	   .button 
+	   {
+		background-color: #7FFFD4;
+		width: 300px;
+		cursor: pointer;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		height: 75px;
+	   }
 	</style>
 </head>
 
-<br><br><a href="newpost.html">Add a New Post</a>
+<body>
+	<br><?php echo $message?><br>
+	<form method="post" action="newpost.html">
+		<button type="submit" class="button">Add a New Post</button>
+	</form>
+	
+	<form method="post" action="viewAllPosts.php">
+		<button type="submit" class="button">View All Posts</button>
+	</form>
+	
+	<form method="post" action="useraccount.html">
+		<button type="submit" class="button">Edit User Information</button>
+	</form>
+</body>
+</html>

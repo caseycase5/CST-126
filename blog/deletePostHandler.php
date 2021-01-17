@@ -1,49 +1,45 @@
-<!-- 
-CST-126 Blog New Post Handler Handler page Version 1.0
-Created by Casey Huz on December 13th 2020 for CST-126
-Module provides the processing of the data inputed by the user 
-during creation of a new blog post. This handler will add the
-data to the SQL server.
--->
-
 <?php
-    $servername = "localhost";
+    $serverName = "localhost";
     $databaseUser = "root";
     $password = "root";
     $database = "blog";
-    $postName = $_POST["postTitle"];
-    $postContent = $_POST["postContent"];
-
-    $conn = new mysqli($servername, $databaseUser, $password, $database);
-    if($conn === false) {
-        debugger_print("Error connecting");
-        echo "Connection Error";
-    }
+    $id = $_GET['id'];
     
-    $sql = "INSERT INTO `posts`(`id`, `post_name`, `post_content`) VALUES (NULL, '$postName', '$postContent')";
+
+    $conn = new mysqli($serverName, $databaseUser, $password, $database);
+    
+    $sql = "DELETE FROM `blog`.`posts`
+           WHERE `id` = $id;";
     
     if(mysqli_query($conn, $sql)) {
-        echo 'Post Added!';
+        echo 'Post Deleted!';
     }
     else {
-        echo 'Post Not Added!';
+        echo 'Post Not Deleted!';
     }
     
     mysqli_close($conn);
+    
+
 ?>
 
+<html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Post Added</title>
+	<title>Delete Post</title>
 	<style>
-	body
-		{  
+	body {  
   			font-family: Calibri, Helvetica, sans-serif;  
  			background-color: #DEB887;  
 		}
+	
+	td {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
 
-		.loginButton
-		{
+		.loginButton {
 			background-color: #7FFFD4;  
   			color: black;  
 			cursor: pointer;
@@ -53,8 +49,7 @@ data to the SQL server.
   			opacity: 0.9; 
 		}
 		
-	   .button 
-	   {
+	   .button {
 		background-color: #7FFFD4;
 		width: 300px;
 		cursor: pointer;
@@ -77,3 +72,4 @@ data to the SQL server.
 		<button type="submit" class="button">Edit User Information</button>
 	</form>
 </body>
+</html>

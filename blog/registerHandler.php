@@ -32,6 +32,7 @@ buttons that link them to the other pages on the site.
     $zipcode = $_POST["zipcode"];
     $country = $_POST["country"];
     $role = $_POST["role"];
+    $message = "Null";
 
     $conn = new mysqli($servername, $databaseUser, $password, $database);
     if($conn === false) {
@@ -42,10 +43,10 @@ buttons that link them to the other pages on the site.
     VALUES (NULL, '$username', '$userPassword', '$firstName', '$lastName', '$email', '$address', '$city', '$state', '$zipcode', '$country', '$role')";
     
     if(mysqli_query($conn, $sql)) {
-        echo 'Registration Complete!';
+        $message = 'Registration Complete!';
     }
     else {
-        echo 'Data not inserted';
+        $message = 'Registration Not Complete! Please Contact Site Admins.';
     }
     
     mysqli_close($conn);
@@ -73,7 +74,8 @@ buttons that link them to the other pages on the site.
 	</style>
 </head>
 <body>
-
+	<h1><?php echo $message?></h1>
+	<br>
 	<form method="post" action="register.html">
 		<button type="submit" class="button">Register</button><br><br><br>
 	</form>

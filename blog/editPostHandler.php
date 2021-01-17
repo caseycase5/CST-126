@@ -1,40 +1,36 @@
-<!-- 
-CST-126 Blog New Post Handler Handler page Version 1.0
-Created by Casey Huz on December 13th 2020 for CST-126
-Module provides the processing of the data inputed by the user 
-during creation of a new blog post. This handler will add the
-data to the SQL server.
--->
-
 <?php
-    $servername = "localhost";
-    $databaseUser = "root";
-    $password = "root";
-    $database = "blog";
-    $postName = $_POST["postTitle"];
-    $postContent = $_POST["postContent"];
+$servername = "localhost";
+$databaseUser = "root";
+$password = "root";
+$database = "blog";
+$id = $_GET['id'];
+$postName = $_POST["postTitle"];
+$postContent = $_POST["postContent"];
 
-    $conn = new mysqli($servername, $databaseUser, $password, $database);
-    if($conn === false) {
-        debugger_print("Error connecting");
-        echo "Connection Error";
-    }
-    
-    $sql = "INSERT INTO `posts`(`id`, `post_name`, `post_content`) VALUES (NULL, '$postName', '$postContent')";
-    
-    if(mysqli_query($conn, $sql)) {
-        echo 'Post Added!';
-    }
-    else {
-        echo 'Post Not Added!';
-    }
-    
-    mysqli_close($conn);
+$conn = new mysqli($servername, $databaseUser, $password, $database);
+if($conn === false) {
+    debugger_print("Error connecting");
+    echo "Connection Error";
+}
+
+$sql = "UPDATE `blog`.`posts`
+    SET
+    `post_name` = '$postName',
+    `post_content` = '$postContent'
+    WHERE `id` = '$id';";
+
+if(mysqli_query($conn, $sql)) {
+    echo '<h1>Post Edited!</h1>';
+}
+else {
+    echo '<h1>Post Not Edited!</h1>';
+}
+mysqli_close($conn);
 ?>
 
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Post Added</title>
+	<title>Post Edited</title>
 	<style>
 	body
 		{  
