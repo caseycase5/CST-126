@@ -1,9 +1,28 @@
 <!-- 
-CST-126 Blog Project viewAllPosts page Version 1.2
+CST-126 Blog Project searchHandler page Version 1.0
 Created by Casey Huz on January 23rd 2021 for CST-126
-Module prints out all posts currently stored on the server 
-and allows the user to search for posts containing keywords.
+Module handles the processing of data with the server to search
+the current database for terms entered by the user.
 -->
+<?php 
+    $searchPattern = $_GET["searchPattern"];
+    
+    $serverName = "localhost";
+    $databaseUser = "root";
+    $password = "root";
+    $database = "blog";
+    
+    $conn = new mysqli($serverName, $databaseUser, $password, $database);
+    
+    if($conn === false) {
+        debugger_print("Error connecting");
+        echo "Connection Error";
+    }
+
+    $sql = "SELECT * FROM posts WHERE post_name LIKE '%$searchPattern%' or
+        post_content LIKE '%$searchPattern%';";
+?>
+
 <html>
 <head>
 	<meta charset="ISO-8859-1">
@@ -44,48 +63,25 @@ and allows the user to search for posts containing keywords.
 	<h1 align="center">View All Posts</h1><br><br>
 
 	<form action="searchHandler.php">
-		<input type="search" name="searchPattern" placeholder="Search">
-		<button type="submit">Search</button>
+		<input type="search" name="searchPattern" value="<?php echo $searchPattern?>">
+		<button type="submit">Search</button><br><br>
 	</form>
-
-<!-- Code that handles the retrieval and printing of all posts -->
-<?php
-    $serverName = "localhost";
-    $databaseUser = "root";
-    $password = "root";
-    $database = "blog";
-
-    $conn = new mysqli($serverName, $databaseUser, $password, $database);
-    
-    if($conn === false) {
-        debugger_print("Error connecting");
-        echo "Connection Error";
-    }
-    
-    $sql = "SELECT `posts`.`id`,
-    `posts`.`post_name`,
-    `posts`.`post_content`,
-    `posts`.`rating`
-    FROM `blog`.`posts`;";
-    
-    if($result = mysqli_query($conn, $sql)){
+	
+<?php 
+	if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<table>";
             echo "<tr>";
             echo "<th>ID</th>";
             echo "<th>Post Name</th>";
             echo "<th>Post Content</th>";
-            echo "<th>Post Rating</th>";
             echo "</tr>";
             while($row = mysqli_fetch_array($result)){
                 echo "<tr>";
                 echo "<td name='id'>" . $row['id'] . "</td>";
                 echo "<td>" . $row['post_name'] . "</td>";
                 echo "<td>" . $row['post_content'] . "</td>";
-                echo "<td>" . $row['rating'] . "</td>";
                 $id = $row['id'];
-                echo"<td><form method='POST' id='commentsForm' action='postComments.php?id=$id'>
-                    <button type='submit' class='smallButton'>View Comments</button></form></td>";
                 echo"<td><form method='POST' id='editPostForm' action='editPost.php?id=$id'>
                     <button type='submit' class='smallButton'>Edit Post</button></form></td>";
                 echo"<td><form method='POST' id='deletePostForm' action='deletePostHandler.php?id=$id'>
@@ -97,7 +93,7 @@ and allows the user to search for posts containing keywords.
             mysqli_free_result($result);
         }
         else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            echo "No Results <br>";
         }
     }
 ?>
@@ -109,5 +105,5 @@ and allows the user to search for posts containing keywords.
 	<br><form method="post" action="mainmenu.html">
 		<button type="submit" class="button">Main Menu</button>
 	</form>
-</body>
+    </body>
 </html>

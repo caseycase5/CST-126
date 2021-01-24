@@ -1,42 +1,8 @@
-<!-- 
-CST-126 Blog Project Post Comments page Version 1.2
-Created by Casey Huz on January 23rd 2021 for CST-126
-Module handles processing of any edits made by the user.
--->
-
-<?php
-$servername = "localhost";
-$databaseUser = "root";
-$password = "root";
-$database = "blog";
-$id = $_GET['id'];
-$postName = $_POST["postTitle"];
-$postContent = $_POST["postContent"];
-
-$conn = new mysqli($servername, $databaseUser, $password, $database);
-if($conn === false) {
-    debugger_print("Error connecting");
-    echo "Connection Error";
-}
-
-$sql = "UPDATE `blog`.`posts`
-    SET
-    `post_name` = '$postName',
-    `post_content` = '$postContent'
-    WHERE `id` = '$id';";
-
-if(mysqli_query($conn, $sql)) {
-    echo '<h1>Post Edited!</h1>';
-}
-else {
-    echo '<h1>Post Not Edited!</h1>';
-}
-mysqli_close($conn);
-?>
-
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Post Edited</title>
+	<title>Main Menu</title>
 	<style>
 	body
 		{  
@@ -67,15 +33,17 @@ mysqli_close($conn);
 </head>
 
 <body>
+	<br><?php echo $message?><br>
 	<form method="post" action="newpost.html">
 		<button type="submit" class="button">Add a New Post</button>
-	</form>
+	</form><br>
 	
 	<form method="post" action="viewAllPosts.php">
 		<button type="submit" class="button">View All Posts</button>
-	</form>
+	</form><br>
 	
 	<form method="post" action="useraccount.html">
 		<button type="submit" class="button">Edit User Information</button>
 	</form>
 </body>
+</html>
