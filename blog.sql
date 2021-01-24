@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 17, 2021 at 04:54 PM
+-- Generation Time: Jan 24, 2021 at 11:04 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -25,23 +25,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `assoc_post_id` int(11) NOT NULL,
+  `rating` int(1) NOT NULL,
+  `comment` varchar(750) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `assoc_post_id`, `rating`, `comment`) VALUES
+(1, 3, 4, 'This is a test comment for the Post shown above.'),
+(3, 3, 5, 'I wonder how lazy the dog actually was.'),
+(20, 5, 2, 'Boring post.'),
+(21, 5, 3, 'Post is just a test.'),
+(22, 6, 3, 'Not very good food.'),
+(23, 3, 4, 'The fox was really quick.'),
+(24, 3, 1, 'This is a bad comment.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `post_name` varchar(50) NOT NULL,
-  `post_content` varchar(3000) NOT NULL
+  `post_content` varchar(3000) NOT NULL,
+  `rating` decimal(3,0) NOT NULL DEFAULT '5',
+  `total_ratings` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `post_name`, `post_content`) VALUES
-(3, 'The quick fox', 'The quick brown fox jumped over the lazy dog.'),
-(5, 'Another Test Post', 'Test Post Content Updated.'),
-(6, 'Cooking show', 'We have an upcoming cooking show that we will showcase here.');
+INSERT INTO `posts` (`id`, `post_name`, `post_content`, `rating`, `total_ratings`) VALUES
+(3, 'The quick fox', 'The quick brown fox jumped over the lazy dog.', '4', 5),
+(5, 'Another Test Post', 'Test Post Content Updated.', '4', 3),
+(6, 'Cooking show', 'We have an upcoming cooking show that we will showcase here.', '3', 4);
 
 -- --------------------------------------------------------
 
@@ -79,6 +107,12 @@ INSERT INTO `users` (`id`, `user_name`, `password`, `first_name`, `last_name`, `
 --
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -93,6 +127,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `posts`
