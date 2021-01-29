@@ -1,3 +1,9 @@
+<!-- 
+CST-126 Blog Project Edit User Info page Version 1.0
+Created by Casey Huz on January 16th 2021 for CST-126
+Module displays current user info and allows them to 
+make changes before pushing to the handler.
+-->
 <?php 
     $username = $_POST["username"];
     $userPassword = $_POST["password"];
@@ -137,6 +143,8 @@ pattern="Subscriber|Editor|Author|Contributor">
 
 <button type="submit" class="registerButton">Save Changes</button>
 </form>
+
+<br><a href="mainmenu.html">Home Page</a>
 </body>
 </html>
 

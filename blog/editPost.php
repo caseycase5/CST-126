@@ -1,3 +1,9 @@
+<!-- 
+CST-126 Blog Project Edit Post page Version 1.0
+Created by Casey Huz on January 23rd 2021 for CST-126
+Module displays the current information for a post and
+allows a user to change the data.
+-->
 <?php
     $serverName = "localhost";
     $databaseUser = "root";
@@ -67,8 +73,7 @@
 		width: 300px;
 		cursor: pointer;
 		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-		height: 75px;
-	   }
+		height: 50px;
 	</style>
 </head>
 

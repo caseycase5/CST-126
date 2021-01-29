@@ -1,3 +1,8 @@
+<!-- 
+CST-126 Blog Project Edit User Handler page Version 1.0
+Created by Casey Huz on January 16th 2021 for CST-126
+Module handles processing of any edits made by the user.
+-->
 <?php
     $serverName = "localhost";
     $databaseUser = "root";

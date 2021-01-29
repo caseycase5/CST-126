@@ -1,5 +1,5 @@
 <!-- 
-CST-126 Blog Project Post Comments page Version 1.2
+CST-126 Blog Project Edit Post Handler page Version 1.0
 Created by Casey Huz on January 23rd 2021 for CST-126
 Module handles processing of any edits made by the user.
 -->
@@ -78,4 +78,6 @@ mysqli_close($conn);
 	<form method="post" action="useraccount.html">
 		<button type="submit" class="button">Edit User Information</button>
 	</form>
+	
+	
 </body>

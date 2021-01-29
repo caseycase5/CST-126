@@ -102,6 +102,10 @@ the current database for terms entered by the user.
 		<button type="submit" class="button">Add a New Post</button>
 	</form>
 	
+	<br><form method="post" action="viewAllPosts.php">
+		<button type="submit" class="button">View All Posts</button>
+	</form>
+	
 	<br><form method="post" action="mainmenu.html">
 		<button type="submit" class="button">Main Menu</button>
 	</form>

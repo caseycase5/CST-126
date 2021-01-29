@@ -20,7 +20,7 @@ data to the SQL server.
         echo "Connection Error";
     }
     
-    $sql = "INSERT INTO `posts`(`id`, `post_name`, `post_content`) VALUES (NULL, '$postName', '$postContent')";
+    $sql = "INSERT INTO `posts`(`id`, `post_name`, `post_content`) VALUES (NULL, '$postName', '$postContent');";
     
     if(mysqli_query($conn, $sql)) {
         echo 'Post Added!';

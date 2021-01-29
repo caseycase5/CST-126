@@ -1,3 +1,8 @@
+<!-- 
+CST-126 Blog Project Delete Post Handler page Version 1.0
+Created by Casey Huz on January 14th 2021 for CST-126 Module
+ handles the processing and deletion of a post from the database.
+-->
 <?php
     $serverName = "localhost";
     $databaseUser = "root";

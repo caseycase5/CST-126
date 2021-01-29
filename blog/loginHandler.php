@@ -90,7 +90,6 @@ logged in or not.
 </head>
 
 <body>
-	<br><?php echo $message?><br>
 	<form method="post" action="newpost.html">
 		<button type="submit" class="button">Add a New Post</button>
 	</form>
