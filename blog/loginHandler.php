@@ -59,7 +59,7 @@ logged in or not.
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Login Success</title>
+	<title>Login</title>
 	<style>
 	body
 		{  
@@ -90,7 +90,10 @@ logged in or not.
 </head>
 
 <body>
-	<form method="post" action="newpost.html">
+<?php 
+    echo "<b>" . $message . "</b><br>";
+    if ($count == 1) {
+        echo '<form method="post" action="newpost.html">
 		<button type="submit" class="button">Add a New Post</button>
 	</form>
 	
@@ -100,6 +103,13 @@ logged in or not.
 	
 	<form method="post" action="useraccount.html">
 		<button type="submit" class="button">Edit User Information</button>
-	</form>
+	</form>';
+    }
+    else {
+        echo '<br><a href="index.html">Home Page</a>';
+    }
+
+?>
+
 </body>
 </html>
