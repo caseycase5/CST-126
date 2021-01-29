@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 24, 2021 at 11:04 PM
+-- Generation Time: Jan 29, 2021 at 07:23 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -46,7 +46,8 @@ INSERT INTO `comments` (`id`, `assoc_post_id`, `rating`, `comment`) VALUES
 (21, 5, 3, 'Post is just a test.'),
 (22, 6, 3, 'Not very good food.'),
 (23, 3, 4, 'The fox was really quick.'),
-(24, 3, 1, 'This is a bad comment.');
+(24, 3, 1, 'This is a bad comment.'),
+(25, 9, 4, 'This is a good first post.');
 
 -- --------------------------------------------------------
 
@@ -99,8 +100,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `user_name`, `password`, `first_name`, `last_name`, `email`, `address`, `city`, `state`, `zipcode`, `country`, `role`) VALUES
 (1, 'user', 'password12345', 'John', 'Smith', 'johnsmith@gmail.com', '1234 West 3rd Street', 'New York', 'New York', '12345', 'United States', 'Blogger'),
 (3, 'JDoe', 'password12345', 'John', 'Doe', 'jdoe@gmail.com', '123 East 7th Street', 'Chicago', 'Illinois', '12345', 'United States', 'Editor'),
-(4, 'Admin', 'Password12345', 'Admin5', 'Admin Guy', 'Admin@gmail.com', '12345 West 1st Street', 'Los Angeles', 'California', '12345', 'United States', 'Contributor'),
-(5, 'JohnDoe1', 'Password12345', 'John', 'Doe', 'johndoe44@gmail.com', '1234 West 3rd Street', 'San Diego', 'California', '12345', 'United States', 'Author');
+(4, 'Admin', 'Password12345', 'Admin', 'Admin', 'Admin@gmail.com', '12345 West 1st Street', 'Los Angeles', 'California', '12345', 'United States', 'Contributor'),
+(5, 'JohnDoe1', 'Password12345', 'John', 'Doe', 'johndoe44@gmail.com', '1234 West 3rd Street', 'San Diego', 'California', '12345', 'United States', 'Author'),
+(8, 'chuz', 'password12345', 'Casey', 'Huz', 'chuz@my.gcu.edu', '1234 West third ave', 'New York', 'New York', '12345', 'United States', 'Author');
 
 --
 -- Indexes for dumped tables
@@ -132,19 +134,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
